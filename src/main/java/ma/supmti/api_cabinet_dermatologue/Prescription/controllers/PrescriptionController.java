@@ -24,6 +24,12 @@ public class PrescriptionController {
   @Autowired
   private PrescriptionService prescriptionService;
 
+  /**
+   * Retrieves a prescription by its ID.
+   *
+   * @param  id  the ID of the prescription to retrieve
+   * @return     the prescription with the given ID, or a 404 response if not found
+   */
   @GetMapping("/{id}")
   public ResponseEntity<Prescription> findPrescriptionById(@PathVariable Long id) {
     final Prescription prescription = prescriptionService.findPrescriptionById(id);
@@ -35,6 +41,11 @@ public class PrescriptionController {
     return new ResponseEntity<Prescription>(prescription, HttpStatus.OK);
   }
 
+    /**
+     * Retrieves all prescriptions from the prescription service and returns them as a response entity.
+     *
+     * @return          A response entity containing a list of prescriptions and an HTTP status of OK.
+     */
   @GetMapping
   public ResponseEntity<List<Prescription>> findAllPrescriptions() {
     final List<Prescription> prescriptions = prescriptionService.findAllPrescriptions();
@@ -42,6 +53,12 @@ public class PrescriptionController {
     return new ResponseEntity<List<Prescription>>(prescriptions, HttpStatus.OK);
   }
 
+  /**
+   * Retrieves all prescriptions for a specific patient by their ID.
+   *
+   * @param  id  the ID of the patient
+   * @return     a response entity containing a list of prescriptions and an HTTP status of OK
+   */
   @GetMapping("/patient/{id}")
   public ResponseEntity<List<Prescription>> findPrescriptionsByPatientId(@PathVariable Long id) {
     final List<Prescription> prescriptions = prescriptionService.findAllPrescriptionsByPatientId(id);
@@ -49,6 +66,12 @@ public class PrescriptionController {
     return new ResponseEntity<List<Prescription>>(prescriptions, HttpStatus.OK);
   }
 
+  /**
+   * Creates a new prescription using the provided data.
+   *
+   * @param  prescription  the prescription object containing the data for the new prescription
+   * @return               a response entity with a success message and the HTTP status code CREATED
+   */
   @PostMapping
   public ResponseEntity<String> createPrescription(@RequestBody Prescription prescription) {
     prescriptionService.savePrescription(prescription);
@@ -56,6 +79,13 @@ public class PrescriptionController {
     return new ResponseEntity<String>("Prescription created successfully", HttpStatus.CREATED);
   }
 
+  /**
+   * Updates a prescription with the given ID using the provided data.
+   *
+   * @param  id            the ID of the prescription to update
+   * @param  prescription  the updated prescription object
+   * @return               a response entity with a success message and the HTTP status code OK if the prescription was updated successfully, or the HTTP status code NOT_FOUND if the prescription was not found
+   */
   @PutMapping("/{id}")
   public ResponseEntity<String> updatePrescription(@PathVariable Long id, @RequestBody Prescription prescription) {
     final boolean isPrescriptionUpdated = prescriptionService.updatePrescription(id, prescription);
@@ -67,6 +97,12 @@ public class PrescriptionController {
     return new ResponseEntity<>(HttpStatus.NOT_FOUND);
   }
 
+  /**
+   * Deletes a prescription with the given ID.
+   *
+   * @param  id  the ID of the prescription to delete
+   * @return     a response entity with a success message and the HTTP status code OK if the prescription was deleted successfully, or the HTTP status code NOT_FOUND if the prescription was not found
+   */
   @DeleteMapping("/{id}")
   public ResponseEntity<String> deletePrescription(@PathVariable Long id) {
     final boolean isPrescriptionDeleted = prescriptionService.deletePrescription(id);
