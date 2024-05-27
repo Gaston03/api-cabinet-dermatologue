@@ -2,7 +2,7 @@ package ma.supmti.api_cabinet_dermatologue.Cabinet.services;
 
 import java.util.List;
 
-import ma.supmti.api_cabinet_dermatologue.Cabinet.Cabinet;
+import ma.supmti.api_cabinet_dermatologue.Cabinet.models.Cabinet;
 
 public interface CabinetService {
 

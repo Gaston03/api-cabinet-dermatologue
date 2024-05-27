@@ -1,13 +1,21 @@
-package ma.supmti.api_cabinet_dermatologue.Patient;
+package ma.supmti.api_cabinet_dermatologue.Patient.models;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ma.supmti.api_cabinet_dermatologue.Prescription.models.Prescription;
 
 @Entity
 @Table(name = "patients")
@@ -30,5 +38,9 @@ public class Patient {
 
   @Column(nullable = false)
   private String telephone;
+
+  @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
+  @JsonIgnoreProperties({ "patient", "cabinet" })
+  private List<Prescription> prescriptions;
 
 }

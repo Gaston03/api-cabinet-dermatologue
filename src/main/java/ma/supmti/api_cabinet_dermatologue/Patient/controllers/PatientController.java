@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ma.supmti.api_cabinet_dermatologue.Patient.Patient;
+import ma.supmti.api_cabinet_dermatologue.Patient.models.Patient;
 import ma.supmti.api_cabinet_dermatologue.Patient.services.PatientService;
 
 import org.springframework.web.bind.annotation.DeleteMapping;

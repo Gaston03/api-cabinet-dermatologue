@@ -2,7 +2,7 @@ package ma.supmti.api_cabinet_dermatologue.Patient.services;
 
 import java.util.List;
 
-import ma.supmti.api_cabinet_dermatologue.Patient.Patient;
+import ma.supmti.api_cabinet_dermatologue.Patient.models.Patient;
 
 public interface PatientService {
 

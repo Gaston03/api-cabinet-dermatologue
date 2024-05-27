@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ma.supmti.api_cabinet_dermatologue.Patient.Patient;
+import ma.supmti.api_cabinet_dermatologue.Patient.models.Patient;
 import ma.supmti.api_cabinet_dermatologue.Patient.repositories.PatientRepository;
 
 @Service

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import ma.supmti.api_cabinet_dermatologue.Cabinet.Cabinet;
+import ma.supmti.api_cabinet_dermatologue.Cabinet.models.Cabinet;
 import ma.supmti.api_cabinet_dermatologue.Cabinet.services.CabinetService;
 
 @RestController
