@@ -16,6 +16,7 @@ import jakarta.persistence.UniqueConstraint;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ma.supmti.api_cabinet_dermatologue.Prescription.models.Prescription;
+import ma.supmti.api_cabinet_dermatologue.RDV.models.RDV;
 
 @Entity
 @Table(name = "cabinets", uniqueConstraints = @UniqueConstraint(columnNames = { "nom", "ville" }))
@@ -42,4 +43,8 @@ public class Cabinet {
   @OneToMany(mappedBy = "cabinet", cascade = CascadeType.ALL)
   @JsonIgnoreProperties({ "patient", "cabinet" })
   private List<Prescription> prescriptions;
+
+  @OneToMany(mappedBy = "cabinet", cascade = CascadeType.ALL)
+  @JsonIgnoreProperties({ "patient", "cabinet" })
+  private List<RDV> rdvs;
 }

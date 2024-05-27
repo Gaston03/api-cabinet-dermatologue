@@ -15,6 +15,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ma.supmti.api_cabinet_dermatologue.Prescription.models.Prescription;
+import ma.supmti.api_cabinet_dermatologue.RDV.models.RDV;
 
 @Entity
 @Table(name = "patients")
@@ -41,5 +42,9 @@ public class Patient {
   @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
   @JsonIgnoreProperties({ "patient", "cabinet" })
   private List<Prescription> prescriptions;
+
+  @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
+  @JsonIgnoreProperties({ "patient", "cabinet" })
+  private List<RDV> rdvs;
 
 }
