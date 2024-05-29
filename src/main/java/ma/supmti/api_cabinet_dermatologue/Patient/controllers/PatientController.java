@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
-@RequestMapping("/patient")
+@RequestMapping("/api/v1/patient")
 public class PatientController {
 
   @Autowired

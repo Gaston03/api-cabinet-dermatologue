@@ -18,7 +18,7 @@ import ma.supmti.api_cabinet_dermatologue.Cabinet.models.Cabinet;
 import ma.supmti.api_cabinet_dermatologue.Cabinet.services.CabinetService;
 
 @RestController
-@RequestMapping("/cabinet")
+@RequestMapping("/api/v1/cabinet")
 public class CabinetController {
 
   @Autowired

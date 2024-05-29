@@ -18,7 +18,7 @@ import ma.supmti.api_cabinet_dermatologue.Prescription.models.Prescription;
 import ma.supmti.api_cabinet_dermatologue.Prescription.services.PrescriptionService;
 
 @RestController
-@RequestMapping("/prescription")
+@RequestMapping("/api/v1/prescription")
 public class PrescriptionController {
 
   @Autowired

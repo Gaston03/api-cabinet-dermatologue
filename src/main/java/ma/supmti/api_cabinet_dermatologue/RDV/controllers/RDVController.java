@@ -18,7 +18,7 @@ import ma.supmti.api_cabinet_dermatologue.RDV.models.RDV;
 import ma.supmti.api_cabinet_dermatologue.RDV.services.RDVService;
 
 @RestController
-@RequestMapping("/rdv")
+@RequestMapping("/api/v1/rdv")
 public class RDVController {
 
   @Autowired
