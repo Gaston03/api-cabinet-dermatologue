@@ -1,45 +1,47 @@
-package ma.supmti.api_cabinet_dermatologue.Cabinet.models;
+package ma.supmti.api_cabinet_dermatologue.DossierMedical.models;
 
+import java.time.LocalDate;
 import java.util.List;
+
+import org.hibernate.annotations.CurrentTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ma.supmti.api_cabinet_dermatologue.Patient.models.Patient;
 import ma.supmti.api_cabinet_dermatologue.Prescription.models.Prescription;
 
 @Entity
-@Table(name = "cabinets", uniqueConstraints = @UniqueConstraint(columnNames = { "nom", "ville" }))
-@Data
+@Table(name = "dossier-medical")
 @NoArgsConstructor
-public class Cabinet {
-
+@Data
+public class DossierMedical {
+  
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @Column(nullable = false)
-  private String nom;
+  private String alergies;
+  private String chronicIllnesses;
 
-  @Column(nullable = false)
-  private String addresse;
+  @CurrentTimestamp
+  private LocalDate createdAt;
 
-  @Column(nullable = false)
-  private String ville;
+  @OneToOne
+  @JoinColumn(name = "patient_id", nullable = false, updatable = false)
+  private Patient patient;
 
-  @Column(nullable = false)
-  private String telephone;
-
-  @OneToMany(mappedBy = "cabinet", cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "dossierMedical", cascade = CascadeType.ALL)
   @JsonIgnoreProperties({ "cabinet", "dossierMedical" })
   private List<Prescription> prescriptions;
 }

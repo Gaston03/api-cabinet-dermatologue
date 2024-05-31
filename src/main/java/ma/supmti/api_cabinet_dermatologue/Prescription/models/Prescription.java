@@ -3,7 +3,6 @@ package ma.supmti.api_cabinet_dermatologue.Prescription.models;
 import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,7 +15,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ma.supmti.api_cabinet_dermatologue.Cabinet.models.Cabinet;
-import ma.supmti.api_cabinet_dermatologue.Patient.models.Patient;
+import ma.supmti.api_cabinet_dermatologue.DossierMedical.models.DossierMedical;
 
 @Entity
 @Table(name = "prescriptions")
@@ -32,15 +31,11 @@ public class Prescription {
   private String description;
 
   @CreationTimestamp
-  @Column(nullable = false, updatable = false)
   private LocalDateTime createdAt;
 
-  @UpdateTimestamp
-  private LocalDateTime updatedAt;
-
   @ManyToOne
-  @JoinColumn(name = "patient_id", nullable = false, updatable = false)
-  private Patient patient;
+  @JoinColumn(name = "dossier_id", nullable = false, updatable = false)
+  private DossierMedical dossierMedical;
 
   @ManyToOne
   @JoinColumn(name = "cabinet_id", nullable = false, updatable = false)
