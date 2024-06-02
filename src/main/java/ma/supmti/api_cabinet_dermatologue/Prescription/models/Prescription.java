@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -35,9 +37,11 @@ public class Prescription {
 
   @ManyToOne
   @JoinColumn(name = "dossier_id", nullable = false, updatable = false)
+  @JsonIgnoreProperties({ "prescriptions" })
   private DossierMedical dossierMedical;
 
   @ManyToOne
   @JoinColumn(name = "cabinet_id", nullable = false, updatable = false)
+  @JsonIgnoreProperties({ "prescriptions" })
   private Cabinet cabinet;
 }

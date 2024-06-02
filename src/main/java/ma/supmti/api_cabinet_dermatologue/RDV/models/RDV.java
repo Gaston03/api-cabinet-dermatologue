@@ -18,7 +18,7 @@ import ma.supmti.api_cabinet_dermatologue.Cabinet.models.Cabinet;
 import ma.supmti.api_cabinet_dermatologue.Patient.models.Patient;
 
 @Entity
-@Table(name = "rendez_vous")
+@Table(name = "rendez-vous")
 @NoArgsConstructor
 @Data
 public class RDV {
