@@ -2,6 +2,8 @@ package ma.supmti.api_cabinet_dermatologue.RDV.models;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -22,7 +24,7 @@ import ma.supmti.api_cabinet_dermatologue.Patient.models.Patient;
 @NoArgsConstructor
 @Data
 public class RDV {
-  
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -42,6 +44,7 @@ public class RDV {
 
   @ManyToOne
   @JoinColumn(name = "cabinet_id", nullable = false, updatable = false)
+  @JsonIgnoreProperties({ "prescriptions" })
   private Cabinet cabinet;
 
 }
