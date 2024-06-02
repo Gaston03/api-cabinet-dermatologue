@@ -10,8 +10,6 @@ public interface PrescriptionService {
 
   List<Prescription> findAllPrescriptions();
 
-  List<Prescription> findAllPrescriptionsByPatientId(Long patientId);
-
   void savePrescription(Prescription prescription);
 
   boolean updatePrescription(Long id, Prescription prescription);

@@ -38,17 +38,6 @@ public class PrescriptionServiceImplementation implements PrescriptionService {
   }
 
     /**
-     * Finds all prescriptions by the given patient ID.
-     *
-     * @param  patientId  the ID of the patient
-     * @return            a list of prescriptions associated with the patient
-     */
-  @Override
-  public List<Prescription> findAllPrescriptionsByPatientId(Long patientId) {
-    return prescriptionRepository.findAllByPatientId(patientId);
-  }
-
-    /**
      * Saves a prescription in the database.
      *
      * @param  prescription  the prescription to be saved

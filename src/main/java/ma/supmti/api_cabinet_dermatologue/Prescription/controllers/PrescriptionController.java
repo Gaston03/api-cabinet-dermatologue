@@ -54,19 +54,6 @@ public class PrescriptionController {
   }
 
   /**
-   * Retrieves all prescriptions for a specific patient by their ID.
-   *
-   * @param  id  the ID of the patient
-   * @return     a response entity containing a list of prescriptions and an HTTP status of OK
-   */
-  @GetMapping("/patient/{id}")
-  public ResponseEntity<List<Prescription>> findPrescriptionsByPatientId(@PathVariable Long id) {
-    final List<Prescription> prescriptions = prescriptionService.findAllPrescriptionsByPatientId(id);
-
-    return new ResponseEntity<List<Prescription>>(prescriptions, HttpStatus.OK);
-  }
-
-  /**
    * Creates a new prescription using the provided data.
    *
    * @param  prescription  the prescription object containing the data for the new prescription
