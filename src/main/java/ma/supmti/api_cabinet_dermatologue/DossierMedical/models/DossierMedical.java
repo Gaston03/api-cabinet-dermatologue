@@ -26,7 +26,7 @@ import ma.supmti.api_cabinet_dermatologue.Prescription.models.Prescription;
 @NoArgsConstructor
 @Data
 public class DossierMedical {
-  
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -39,6 +39,7 @@ public class DossierMedical {
 
   @OneToOne
   @JoinColumn(name = "patient_id", nullable = false, updatable = false)
+  @JsonIgnoreProperties({ "dossierMedical" })
   private Patient patient;
 
   @OneToMany(mappedBy = "dossierMedical", cascade = CascadeType.ALL)
