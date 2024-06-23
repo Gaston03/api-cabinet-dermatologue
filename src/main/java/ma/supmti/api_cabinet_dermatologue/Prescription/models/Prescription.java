@@ -1,6 +1,6 @@
 package ma.supmti.api_cabinet_dermatologue.Prescription.models;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -33,7 +33,7 @@ public class Prescription {
   private String description;
 
   @CreationTimestamp
-  private LocalDateTime createdAt;
+  private LocalDate createdAt;
 
   @ManyToOne
   @JoinColumn(name = "dossier_id", nullable = false, updatable = false)
