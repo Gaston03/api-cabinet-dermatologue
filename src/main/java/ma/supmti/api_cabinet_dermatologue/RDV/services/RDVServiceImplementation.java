@@ -83,6 +83,7 @@ public class RDVServiceImplementation implements RDVService {
       final RDV olRdv = optionalRdv.get();
 
       olRdv.setMotif(rdv.getMotif());
+      olRdv.setDescription(rdv.getDescription());
       olRdv.setDate(rdv.getDate());
       olRdv.setStatus(rdv.getStatus());
 

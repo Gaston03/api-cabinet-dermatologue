@@ -30,7 +30,11 @@ public class RDV {
   private Long id;
 
   @Column(nullable = false)
-  private String motif;
+  @Enumerated(EnumType.STRING)
+  private RDVMotifType motif;
+
+  @Column(nullable = false)
+  private String description;
 
   @Column(nullable = false)
   private LocalDate date;
@@ -47,11 +51,4 @@ public class RDV {
   @JsonIgnoreProperties({ "prescriptions" })
   private Cabinet cabinet;
 
-}
-
-enum RDVStatus {
-  PENDING,
-  ACCEPTED,
-  COMPLETED,
-  CANCELED
 }
