@@ -16,7 +16,7 @@ public interface RDVRepository extends JpaRepository<RDV, Long> {
  * @param  patientId  the ID of the patient to retrieve RDV objects for
  * @return            a list of RDV objects associated with the given patient ID
  */
-  @Query(value = "SELECT * FROM rendez_vous r WHERE r.patient_id = :patientId", nativeQuery = true)
+  @Query(value = "SELECT * FROM 'rendez-vous' r WHERE r.patient_id = :patientId", nativeQuery = true)
   public List<RDV> findRdvsByPatientId(@Param("patientId") Long patientId);
 
     /**
@@ -25,7 +25,7 @@ public interface RDVRepository extends JpaRepository<RDV, Long> {
      * @param  cabinetId  the ID of the cabinet to retrieve RDV objects for
      * @return            a list of RDV objects associated with the given cabinet ID
      */
-  @Query(value = "SELECT * FROM rendez_vous r WHERE r.cabinet_id = :cabinetId", nativeQuery = true)
+  @Query(value = "SELECT * FROM 'rendez-vous' r WHERE r.cabinet_id = :cabinetId", nativeQuery = true)
   public List<RDV> findRdvsByCabinetId(@Param("cabinetId") Long cabinetId);
   
 }
